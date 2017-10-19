@@ -1,0 +1,26 @@
+{
+	"name": "dot-files-linc",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"setup": "npm install && npm start"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LincWorld/dot-files.git"
+	},
+	"author": "Brahma Dev",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/LincWorld/dot-files/issues"
+	},
+	"homepage": "https://github.com/LincWorld/dot-files#readme",
+	"devDependencies": {
+		"deepmerge": "^2.0.0",
+		"git-config": "0.0.7",
+		"gitconfig": "^2.0.3",
+		"yn-prompt": "^1.0.7"
+	}
+}

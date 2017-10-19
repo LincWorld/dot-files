@@ -1,1 +1,3 @@
 # dot-files
+
+Potentially destructive
