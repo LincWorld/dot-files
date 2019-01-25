@@ -1,0 +1,9 @@
+useTabs: true
+tabWidth: 3
+semi: true
+singleQuote: false
+jsxSingleQuote: false
+bracketSpacing: true
+jsxBracketSameLine: true
+arrowParens: always
+insertPragma: true
