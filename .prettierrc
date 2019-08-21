@@ -5,4 +5,4 @@ jsxSingleQuote: false
 bracketSpacing: true
 jsxBracketSameLine: true
 arrowParens: always
-insertPragma: true
+insertPragma: false
