@@ -1,5 +1,5 @@
 {
-	"editor.fontFamily": "'IBM Plex Mono', 'IBMPlexMono NF', Consolas, 'Courier New', monospace",
+	"editor.fontFamily": "'Fira Code Retina', 'Fira Code', 'IBM Plex Mono', Consolas, 'Courier New', monospace",
 	"editor.tabSize": 3,
 	"editor.insertSpaces": false,
 	"editor.minimap.enabled": false,
