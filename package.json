@@ -1,19 +1,20 @@
 {
 	"name": "@lincworld/dot-files",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
-		"setup": "npm install && npm start"
+		"setup": "npm install && npm start",
+		"publish": "npm publish && npm publish --\"@lincworld:registry=https://registry.npmjs.org\" --access=public"
 	},
 	"files": [
-		"/.eslintrc",
+		"/.eslintrc.json",
 		"/.prettierrc"
 	],
 	"publishConfig": {
-      "registry":"https://npm.pkg.github.com/"
-   },
+		"registry": "https://npm.pkg.github.com/"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/LincWorld/dot-files.git"
