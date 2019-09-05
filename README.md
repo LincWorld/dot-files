@@ -6,9 +6,9 @@ Potentially destructive
 ## Quickstart:
 ----
 ```
-wget -O- https://raw.githubusercontent.com/LincWorld/dot-files/master/install.sh | bash
+bash <(wget -qO- https://raw.githubusercontent.com/LincWorld/dot-files/master/install.sh)
 ```
 or
 ```
-curl -sL https://raw.githubusercontent.com/LincWorld/dot-files/master/install.sh | bash -
+bash <(curl -s https://raw.githubusercontent.com/LincWorld/dot-files/master/install.sh)
 ```
