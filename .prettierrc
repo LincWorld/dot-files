@@ -6,3 +6,4 @@ bracketSpacing: true
 jsxBracketSameLine: true
 arrowParens: always
 insertPragma: false
+proseWrap: preserve
