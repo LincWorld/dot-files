@@ -7,3 +7,4 @@ jsxBracketSameLine: true
 arrowParens: always
 insertPragma: false
 proseWrap: preserve
+printWidth: 120
