@@ -19,14 +19,20 @@ ynPrompt("This operation will overwrite your dotfiles. Continue? (y/n)").then(fu
 		const userConfigFile = path.join(homedir, ".eslintrc.json");
 		let userConfig = {};
 		if (fs.existsSync(userConfigFile)) {
-			userConfig = fs.readFileSync(userConfigFile);
-			fs.writeFileSync(path.join(homedir, ".eslintrc.json.backup"), userConfig, {
-				flag: "w+"
-			});
+			userConfig = JSON.parse(fs.readFileSync(userConfigFile, "utf8"));
+			fs.writeFileSync(
+				path.join(homedir, ".eslintrc.json.backup"),
+				JSON.stringify(userConfig, null, "\t"),
+				{
+					flag: "w+"
+				}
+			);
 		}
-		const customConfig = fs.readFileSync(path.join(__dirname, ".eslintrc.json"));
+		const customConfig = JSON.parse(
+			fs.readFileSync(path.join(__dirname, ".eslintrc.json"), "utf8")
+		);
 		const newUserConfig = deepmerge(userConfig, customConfig);
-		fs.writeFileSync(userConfigFile, newUserConfig, {
+		fs.writeFileSync(userConfigFile, JSON.stringify(newUserConfig, null, "\t"), {
 			flag: "w+"
 		});
 		console.log("Updated ESLINT");
@@ -48,7 +54,7 @@ ynPrompt("This operation will overwrite your dotfiles. Continue? (y/n)").then(fu
 
 	//VSCODE
 	(function() {
-		const userConfigFile_Linux = path.join(homedir, "/.config/Code/settings.json");
+		const userConfigFile_Linux = path.join(homedir, "/.config/Code/User/settings.json");
 		const userConfigFile_OSX = path.join(
 			homedir,
 			"/Library/Application Support/Code/settings.json"
@@ -56,36 +62,38 @@ ynPrompt("This operation will overwrite your dotfiles. Continue? (y/n)").then(fu
 		const userConfigFile_Win = path.join(homedir, "/AppData/Roaming/Code/User/settings.json");
 		let userConfig = {};
 		if (fs.existsSync(userConfigFile_Linux)) {
-			userConfig = fs.readFileSync(userConfigFile_Linux);
-			fs.writeFileSync(userConfigFile_Linux + ".backup", userConfig, {
+			userConfig = JSON.parse(fs.readFileSync(userConfigFile_Linux, "utf8"));
+			fs.writeFileSync(userConfigFile_Linux + ".backup", JSON.stringify(userConfig, null, "\t"), {
 				flag: "w+"
 			});
 		} else if (fs.existsSync(userConfigFile_OSX)) {
-			userConfig = fs.readFileSync(userConfigFile_OSX);
-			fs.writeFileSync(userConfigFile_OSX + ".backup", userConfig, {
+			userConfig = JSON.parse(fs.readFileSync(userConfigFile_OSX, "utf8"));
+			fs.writeFileSync(userConfigFile_OSX + ".backup", JSON.stringify(userConfig, null, "\t"), {
 				flag: "w+"
 			});
 		} else if (fs.existsSync(userConfigFile_Win)) {
-			userConfig = fs.readFileSync(userConfigFile_Win);
-			fs.writeFileSync(userConfigFile_Win + ".backup", userConfig, {
+			userConfig = JSON.parse(fs.readFileSync(userConfigFile_Win, "utf8"));
+			fs.writeFileSync(userConfigFile_Win + ".backup", JSON.stringify(userConfig, null, "\t"), {
 				flag: "w+"
 			});
 		}
-		const customConfig = fs.readFileSync(path.join(__dirname, ".eslintrc.json"));
+		const customConfig = JSON.parse(
+			fs.readFileSync(path.join(__dirname, "/vscode/settings.json"), "utf8")
+		);
 		const newUserConfig = deepmerge(userConfig, customConfig);
 		switch (platform) {
 			case "win32":
-				fs.writeFileSync(userConfigFile_Win, newUserConfig, {
+				fs.writeFileSync(userConfigFile_Win, JSON.stringify(newUserConfig, null, "\t"), {
 					flag: "w+"
 				});
 				break;
 			case "linux":
-				fs.writeFileSync(userConfigFile_Linux, newUserConfig, {
+				fs.writeFileSync(userConfigFile_Linux, JSON.stringify(newUserConfig, null, "\t"), {
 					flag: "w+"
 				});
 				break;
 			case "darwin":
-				fs.writeFileSync(userConfigFile_OSX, newUserConfig, {
+				fs.writeFileSync(userConfigFile_OSX, JSON.stringify(newUserConfig, null, "\t"), {
 					flag: "w+"
 				});
 				break;
