@@ -132,6 +132,10 @@ ynPrompt("This operation will overwrite your dotfiles. Continue? (y/n)").then(fu
 		const userGit = readGitConfig.sync();
 		const customGit = readGitConfig.sync(path.join(__dirname, ".gitconfig"));
 		const newGit = deepmerge(userGit, customGit);
+		if (platform === "win32") {
+			newGit.core = newGit.core || {};
+			newGit.core.autocrlf = true;
+		}
 		writeGitConfig
 			.set(trimObj(newGit), {
 				location: "global"
