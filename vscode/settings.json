@@ -1,5 +1,5 @@
 {
-	"editor.fontFamily": "'Fira Code Retina', 'Fira Code', 'IBM Plex Mono', Consolas, 'Courier New', monospace",
+	"editor.fontFamily": "'Cascadia Code PL', 'Fira Code Retina', 'Fira Code', 'IBM Plex Mono', Consolas, 'Courier New', monospace",
 	"editor.tabSize": 3,
 	"editor.insertSpaces": false,
 	"editor.minimap.enabled": false,
@@ -56,5 +56,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"eslint.alwaysShowStatus": true,
+	"telemetry.enableTelemetry": false,
+	"editor.largeFileOptimizations": true,
 	"eslint.validate": [ "javascript", "javascriptreact", "html", "typescript", "typescriptreact" ]
 }
