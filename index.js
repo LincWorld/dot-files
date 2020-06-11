@@ -123,19 +123,21 @@ ynPrompt("This operation will overwrite your dotfiles. Continue? (y/n)").then(fu
 		} else
 			switch (platform) {
 				case "win32":
-					fs.mkdirSync(path.join(homedir, "/AppData/Roaming/Code/User/"));
+					fs.mkdirSync(path.join(homedir, "/AppData/Roaming/Code/User/"), { recursive: true });
 					fs.writeFileSync(userConfigFile_Win, JSON.stringify(newUserConfig, null, "\t"), {
 						flag: "w+"
 					});
 					break;
 				case "linux":
-					fs.mkdirSync(path.join(homedir, "/.config/Code/User/"));
+					fs.mkdirSync(path.join(homedir, "/.config/Code/User/"), { recursive: true });
 					fs.writeFileSync(userConfigFile_Linux, JSON.stringify(newUserConfig, null, "\t"), {
 						flag: "w+"
 					});
 					break;
 				case "darwin":
-					fs.mkdirSync(path.join(homedir, "/Library/Application Support/Code/"));
+					fs.mkdirSync(path.join(homedir, "/Library/Application Support/Code/"), {
+						recursive: true
+					});
 					fs.writeFileSync(userConfigFile_OSX, JSON.stringify(newUserConfig, null, "\t"), {
 						flag: "w+"
 					});
